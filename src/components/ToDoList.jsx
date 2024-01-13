@@ -15,7 +15,7 @@ function ToDoList({ todos, checkBoxComplete, deleteTodo, editTodo }) {
       {todo.text}
       <div className="todo-buttons">
         <button onClick={() => startEdit(todo)}>編集</button>
-        <button onClick={() => deleteTodo(todo.id)}>削除</button>
+        <button onClick={() => confirmAndDeleteTodo(todo.id)}>削除</button>
       </div>
     </div>
   );
@@ -43,6 +43,15 @@ function ToDoList({ todos, checkBoxComplete, deleteTodo, editTodo }) {
   const saveEdit = () => {
     editTodo(edit.id, edit.value); // ToDoリストを編集する関数を呼び出す
     setEdit({ id: null, value: "" });
+  };
+
+  // 確認してからToDoリストを削除する関数
+  const confirmAndDeleteTodo = (id) => {
+    // 確認ダイアログを表示
+    if (window.confirm("本当によろしいですか？")) {
+      // ユーザーがOKをクリックした場合、削除を実行
+      deleteTodo(id);
+    }
   };
 
   return (
