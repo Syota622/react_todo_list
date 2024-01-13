@@ -46,4 +46,18 @@ li {
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-content {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.todo-buttons {
+  display: flex;
+  margin-left: 30px;
+  gap: 5px;
 }

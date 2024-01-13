@@ -6,15 +6,17 @@ function ToDoList({ todos, checkBoxComplete, deleteTodo, editTodo }) {
 
   // ToDoリストを表示するための関数
   const renderDefaultView = (todo) => (
-    <div>
+    <div className="todo-content">
       <input
         type="checkbox"
         checked={todo.isCompleted}
         onChange={() => checkBoxComplete(todo.id)}
       />
       {todo.text}
-      <button onClick={() => startEdit(todo)}>編集</button>
-      <button onClick={() => deleteTodo(todo.id)}>削除</button>
+      <div className="todo-buttons">
+        <button onClick={() => startEdit(todo)}>編集</button>
+        <button onClick={() => deleteTodo(todo.id)}>削除</button>
+      </div>
     </div>
   );
 
@@ -24,14 +26,16 @@ function ToDoList({ todos, checkBoxComplete, deleteTodo, editTodo }) {
   };
 
   // 編集中のToDoリストを表示するための関数
-  const renderEditView = (todo) => (
-    <div>
+  const renderEditView = () => (
+    <div className="todo-content">
       <input
         type="text"
         value={edit.value}
         onChange={(e) => setEdit({ ...edit, value: e.target.value })}
       />
-      <button onClick={saveEdit}>保存</button>
+      <div className="todo-buttons">
+        <button onClick={saveEdit}>保存</button>
+      </div>
     </div>
   );
 
@@ -46,7 +50,7 @@ function ToDoList({ todos, checkBoxComplete, deleteTodo, editTodo }) {
       {todos.map((todo) => (
         <li key={todo.id}>
           {/* 編集ボタンをクリックするかしないかで判定 */}
-          {edit.id === todo.id ? renderEditView(todo) : renderDefaultView(todo)}
+          {edit.id === todo.id ? renderEditView() : renderDefaultView(todo)}
         </li>
       ))}
     </ul>
