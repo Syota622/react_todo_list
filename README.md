@@ -1,3 +1,9 @@
+# GitHub Page の参考記事
+https://qiita.com/tat_mae084/items/745761eee6cd1d42949d
+
+# Node Version
+v21.5.0
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
